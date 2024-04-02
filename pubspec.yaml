@@ -1,0 +1,36 @@
+name: lift
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  dio: ^5.4.2
+  flutter:
+    sdk: flutter
+  flutter_native_splash: ^2.4.0
+  get: ^4.6.6
+  image_cropper: ^5.0.1
+  image_picker: ^1.0.7
+  permission_handler: ^11.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+   - assets/images/
+
+  fonts: 
+   - family: NanumGothic
+     fonts:
+      - asset: assets/fonts/NanumGothicBold.ttf
+      - asset: assets/fonts/NanumGothic.ttf
+      - asset: assets/fonts/NanumGothicExtraBold.ttf
+      - asset: assets/fonts/NanumGothicLight.ttf
+
