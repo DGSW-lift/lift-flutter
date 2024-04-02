@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: '>=3.3.0 <4.0.0'
+  sdk: '>=3.0.3 <4.0.0'
 
 dependencies:
   dio: ^5.4.2
@@ -15,6 +15,7 @@ dependencies:
   image_cropper: ^5.0.1
   image_picker: ^1.0.7
   permission_handler: ^11.3.0
+  textfield_tags: ^3.0.1
 
 dev_dependencies:
   flutter_test:
