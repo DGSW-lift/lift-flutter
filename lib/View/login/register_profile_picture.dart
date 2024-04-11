@@ -37,7 +37,9 @@ class _RegisterProfilePictureState extends State<RegisterProfilePicture> {
             const SizedBox(height: 25),
             _profileImageArea(),
             const SizedBox(height: 40),
-            _profileDescriptionText()
+            _profileDescriptionText(),
+             Spacer(),
+            _nextButton()    
           ],
         ),
       ),
@@ -94,9 +96,6 @@ class _RegisterProfilePictureState extends State<RegisterProfilePicture> {
                         case 'camera':
                           getImage(ImageSource.camera);
                           break;
-                        case 'default':
-                        
-                        break;
                       }
                     }
                   },
@@ -124,15 +123,12 @@ class _RegisterProfilePictureState extends State<RegisterProfilePicture> {
                   onTap: () async {
                     final option = await showImagePickerDialog(context);
                     if (option != null) {
-                      // 선택한 옵션 처리
                       switch (option) {
                         case 'gallery':
                           getImage(ImageSource.gallery);
                           break;
                         case 'camera':
                           getImage(ImageSource.camera);
-                          break;
-                        case 'default':
                           break;
                       }
                     }
@@ -168,6 +164,34 @@ Widget _profileDescriptionText() {
   );
 }
 
+Widget _nextButton() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(right: 20, bottom: 15),
+          child: IconButton(
+            icon: const Image(
+                image: AssetImage('assets/images/NextButton.png'),
+                height: 50,
+                width: 50),
+            onPressed: () {
+              List<XFile> _selectedFiles = [];
+              
+              Get.to(
+                () => const (),                
+  
+              );
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+
+
+
 Future<String?> showImagePickerDialog(BuildContext context) {
   return showDialog<String>(
     context: context,
@@ -189,13 +213,6 @@ Future<String?> showImagePickerDialog(BuildContext context) {
               title: const Text('사진 찍기'),
               onTap: () {
                 Navigator.pop(context, 'camera');
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.person),
-              title: const Text('기본 이미지 사용'),
-              onTap: () {
-                Navigator.pop(context, 'default');
               },
             ),
           ],

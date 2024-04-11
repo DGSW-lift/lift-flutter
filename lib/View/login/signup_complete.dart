@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lift/View/widget/resource/reusable_button.dart';
 
+// 회원 가입 완료 화면
 class SignUpComplete extends StatelessWidget {
   const SignUpComplete({super.key});
 

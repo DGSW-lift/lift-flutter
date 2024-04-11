@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lift/Model/signup_request.dart';
 import 'package:lift/View/login/register_profile_picture.dart';
 import 'package:lift/View/widget/resource/custom_appbar.dart';
 
@@ -65,14 +66,16 @@ class _EnterNameScreenState extends State<EnterNameScreen> {
                 height: 50,
                 width: 50),
             onPressed: () {
+              final String name = _nameTextField.text;
+              final String firstName = _firstNameTextField.text; 
+              
               Get.to(
-                () => RegisterProfilePicture(),
+                () => const RegisterProfilePicture(),                
                 arguments: {
                   "firstName": _firstNameTextField.text,
                   "lastName": _nameTextField.text
                 },
               );
-              print(_firstNameTextField.text);
             },
           ),
         ),
