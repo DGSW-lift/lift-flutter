@@ -1,15 +1,20 @@
+import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:lift/View/login/enter_name_screen.dart';
 import 'package:lift/View/widget/resource/reusable_button.dart';
 import 'package:lift/View/widget/resource/reusable_checkBox.dart';
 import 'package:get/get.dart';
-
+import 'package:the_apple_sign_in/the_apple_sign_in.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
+    void signInWithGoogle() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+  }
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
@@ -147,12 +152,29 @@ class SocialLoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image(image: AssetImage('assets/images/Login_apple.png')),
-        SizedBox(height: 50,width: 10),
-        Image(image: AssetImage('assets/images/Login_google.png')),
+       Ink.image(
+            image: const AssetImage('assets/images/Login_apple.png'),
+            height: 45,
+            width: 45,
+            child: InkWell(onTap: () async {   
+              appleLogin();        
+            },
+          ),
+       ),
+        
+        const SizedBox(height: 50, width: 10),
+        Ink.image(
+            image: const AssetImage('assets/images/Login_google.png'),
+            height: 45,
+            width: 45,
+            child: InkWell(onTap: () async {
+              final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+            },
+          ),
+        ),
       ],
     );
   }
@@ -160,7 +182,8 @@ class SocialLoginButton extends StatelessWidget {
 
 class TermOfUseTextarea extends StatefulWidget {
   const TermOfUseTextarea({super.key});
-
+// 약관 동의 위젯
+// 수정사항: 체크박스 클릭 이벤트 넣기
   @override
   State<TermOfUseTextarea> createState() => _TermOfUseTextareaState();
 }
@@ -199,5 +222,29 @@ class _TermOfUseTextareaState extends State<TermOfUseTextarea> {
         ],
       ),
     );
+  }
+}
+
+Future<void> appleLogin() async {
+  // 1. 애플 로그인이 이용 가능한지 체크함.
+  if(await TheAppleSignIn.isAvailable()) {
+    final AuthorizationResult result = await TheAppleSignIn.performRequests([
+      const AppleIdRequest(requestedScopes: [Scope.email, Scope.fullName])
+    ]);
+   switch(result.status) {
+      case AuthorizationStatus.authorized:
+        
+        break;
+      
+      case AuthorizationStatus.error:
+        print('애플 로그인 오류 : ${result.error!.localizedDescription}');
+        break;
+     
+      case AuthorizationStatus.cancelled:
+        print("로그인을 취소하였습니다");
+        break;
+    }
+  } else {
+    print('애플 로그인을 지원하지 않는 기기입니다.');
   }
 }

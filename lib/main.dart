@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lift/View/login/login_screen.dart';
 import 'package:permission_handler/permission_handler.dart';
-
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 void main() async{
+   await dotenv.load(fileName: 'Server_URL.env');
   runApp(const MainApp());
   
   var isCameraGranted = await requestCameraPermission();

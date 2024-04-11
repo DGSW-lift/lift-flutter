@@ -10,12 +10,15 @@ dependencies:
   dio: ^5.4.2
   flutter:
     sdk: flutter
+  flutter_dotenv: ^5.1.0
   flutter_native_splash: ^2.4.0
   get: ^4.6.6
+  google_sign_in: ^6.2.1
   image_cropper: ^5.0.1
   image_picker: ^1.0.7
   permission_handler: ^11.3.0
   textfield_tags: ^3.0.1
+  the_apple_sign_in: ^1.1.1
 
 dev_dependencies:
   flutter_test:
@@ -26,6 +29,7 @@ flutter:
   uses-material-design: true
   assets:
    - assets/images/
+   - Server_URL.env
 
   fonts: 
    - family: NanumGothic

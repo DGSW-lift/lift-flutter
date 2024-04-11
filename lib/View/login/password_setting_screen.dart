@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:lift/View/login/signin_screen.dart';
 import 'package:lift/View/widget/resource/custom_appbar.dart';
 
 class PasswordSettingScreen extends StatefulWidget {
@@ -82,19 +84,28 @@ Widget _passwordTextField() {
       ),
   );
 }
+  Widget _nextButton() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(right: 20, bottom: 15),
+          child: IconButton(
+            icon: const Image(
+                image: AssetImage('assets/images/NextButton.png'),
+                height: 50,
+                width: 50),
+            onPressed: () {
 
-Widget _nextButton() {
-  return const Row(
-    mainAxisAlignment: MainAxisAlignment.end,
-    children: [
-      Padding(
-        padding: EdgeInsets.only(right: 20,bottom: 15),
-        child: Image(
-          image: AssetImage('assets/images/NextButton.png'),
-          width: 50,
-          height: 50,
+              Get.to(
+                () => const SignInScreen(),                
+                // final String password = 
+              );
+            },
+          ),
         ),
-      ),
-    ],
-  );
-}
+      ],
+    );
+  }
+
+
