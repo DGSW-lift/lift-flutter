@@ -22,13 +22,13 @@ class _EnterNameScreenState extends State<EnterNameScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             _enterNameText(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             EnterFirstNameTextField(controller: _firstNameTextField),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             EnterNameTextField(controller: _nameTextField),
-            Spacer(),
+            const Spacer(),
             _nextButton()
           ],
         ),
