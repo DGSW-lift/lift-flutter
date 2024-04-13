@@ -22,6 +22,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
       automaticallyImplyLeading: false,
       title: Row(
@@ -155,6 +156,7 @@ class SocialLoginButton extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+      if(GetPlatform.isIOS) 
        Ink.image(
             image: const AssetImage('assets/images/Login_apple.png'),
             height: 45,
