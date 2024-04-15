@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:lift/View/login/signin_screen.dart';
 import 'package:lift/View/widget/resource/custom_appbar.dart';
 
+// 회원가입 -> 이메일 입력 후 비밀번호 설정창
 class PasswordSettingScreen extends StatefulWidget {
   const PasswordSettingScreen({super.key});
 
