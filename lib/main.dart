@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:lift/View/login/login_screen.dart';
+import 'package:lift/core/main_app.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 void main() async{
@@ -46,18 +45,3 @@ Future<bool> requestPhotosPermission() async {
   }
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Colors.black,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: const LoginScreen(),
-    );
-  }
-}
