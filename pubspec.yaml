@@ -4,12 +4,15 @@ publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: '>=3.0.3 <4.0.0'
+  sdk: '>=3.2.0 <4.0.0'
 
 dependencies:
   dio: ^5.4.2
   flutter:
     sdk: flutter
+  dio_smart_retry: ^5.0.0
+  retrofit: 4.0.1
+  json_annotation: ^4.8.1
   flutter_dotenv: ^5.1.0
   flutter_native_splash: ^2.4.0
   get: ^4.6.6
@@ -19,23 +22,26 @@ dependencies:
   permission_handler: ^11.3.0
   textfield_tags: ^3.0.1
   the_apple_sign_in: ^1.1.1
+  fluttertoast: ^8.2.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
-
+  retrofit_generator: 7.0.7
+  build_runner: 2.4.5
+  json_serializable: ^6.7.0
 flutter:
   uses-material-design: true
   assets:
-   - assets/images/
-   - Server_URL.env
+    - assets/images/
+    - Server_URL.env
 
-  fonts: 
-   - family: NanumGothic
-     fonts:
-      - asset: assets/fonts/NanumGothicBold.ttf
-      - asset: assets/fonts/NanumGothic.ttf
-      - asset: assets/fonts/NanumGothicExtraBold.ttf
-      - asset: assets/fonts/NanumGothicLight.ttf
+  fonts:
+    - family: NanumGothic
+      fonts:
+        - asset: assets/fonts/NanumGothicBold.ttf
+        - asset: assets/fonts/NanumGothic.ttf
+        - asset: assets/fonts/NanumGothicExtraBold.ttf
+        - asset: assets/fonts/NanumGothicLight.ttf
 
