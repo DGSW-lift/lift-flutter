@@ -33,7 +33,6 @@ class _SignInScreenState extends State<SignUpView> {
           Form(key: _formkey, child: _emailTextField()),
           const SizedBox(height: 10),
           SignUpButtonWidget(formKey: _formkey),
-          // _nextButton(context),
           const SizedBox(height: 10),
           _orText(),
           const SizedBox(height: 12),
