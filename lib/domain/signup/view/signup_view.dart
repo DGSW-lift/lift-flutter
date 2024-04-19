@@ -54,9 +54,11 @@ Widget _signUpText() {
       children: [
         Text("회원 가입",
             style: TextStyle(
+
                 fontWeight: FontWeight.bold,
                 fontFamily: 'NanumGothicBold',
                 fontSize: 40),
+
             textAlign: TextAlign.left),
         SizedBox(
           height: 20,
@@ -64,8 +66,10 @@ Widget _signUpText() {
         Opacity(
             opacity: 0.2,
             child: Text("만 14세 미만은 가입할 수 없습니다.",
-                style: TextStyle(fontFamily: 'NanumGothic', fontSize: 15),
-                textAlign: TextAlign.left)),
+
+            style: TextStyle(fontFamily: 'NanumGothic', fontSize: 15),
+            textAlign: TextAlign.left)),
+
       ],
     ),
   );
@@ -91,7 +95,6 @@ Widget _emailTextField() {
     ),
   );
 }
-//
 // Widget _nextButton(BuildContext context) {
 //   return Container(
 //     width: double.infinity,

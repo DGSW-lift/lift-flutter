@@ -42,7 +42,9 @@ _liftLogoImg(BuildContext context) {
   );
 }
 
-_liftTitle() {
+
+Widget _liftTitle() {
+
   return Container(
     padding: const EdgeInsets.fromLTRB(20, 40, 0, 10),
     alignment: Alignment.centerLeft,

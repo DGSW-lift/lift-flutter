@@ -10,6 +10,7 @@ class SignupButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return ReusableButton(
       text: "회원가입",
       width: double.infinity,

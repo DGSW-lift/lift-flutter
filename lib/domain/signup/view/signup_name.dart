@@ -99,6 +99,7 @@ class _SignUpNameViewState extends State<SignUpNameView> {
         children: [
           const Text(
             '성', 
+
             style: TextStyle(
                 fontSize: 15,
                 fontFamily: 'NanumGothic',

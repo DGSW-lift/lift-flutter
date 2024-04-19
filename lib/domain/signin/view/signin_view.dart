@@ -5,6 +5,7 @@ import 'package:lift/core/common/widgets/circle_button.dart';
 import 'package:lift/domain/signup/view/widget/signup_name/input_first_name_widget.dart';
 import 'package:lift/domain/signup/view/widget/signup_name/input_last_name_widget.dart';
 
+
 // 이메일 로그인 페이지
 class SignInView extends StatefulWidget {
   const SignInView({super.key});
@@ -14,6 +15,7 @@ class SignInView extends StatefulWidget {
 }
 
 class _SignInViewState extends State<SignInView> {
+
   final _formkey = GlobalKey<FormState>();
 
   @override
@@ -131,6 +133,5 @@ class _SignInViewState extends State<SignInView> {
   }
 
 }
-
 
 

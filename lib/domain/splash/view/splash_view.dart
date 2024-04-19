@@ -4,8 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:lift/domain/login/view/login_view.dart';
 import 'package:get/get.dart';
 import 'package:lift/core/device/nav/nav_slide_from_bottom.dart';
-import 'package:lift/core/values/colors.dart' as colors;
-import 'package:lift/domain/splash/view_models/service/splash_service.dart';
+
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);

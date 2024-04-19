@@ -4,12 +4,14 @@ import 'package:lift/View/widget/resource/reusable_button.dart';
 import 'package:get/get.dart';
 import 'package:lift/domain/signin/view/signin_view.dart';
 
+
 class SigninButtonWidget extends StatelessWidget {
 
   SigninButtonWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     return ReusableButton(
       text: "LIFT 회원입니다",
       width: double.infinity,
@@ -26,6 +28,7 @@ class SigninButtonWidget extends StatelessWidget {
           () => const SignInView()
         );
       } ,
+
     );
   }
 }
