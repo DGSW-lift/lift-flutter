@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lift/View/login/register_profile_picture.dart';
+import 'package:lift/View/widget/register_profile_picture.dart';
 import 'package:lift/View/widget/resource/custom_appbar.dart';
 
 class SignInScreen extends StatefulWidget {
