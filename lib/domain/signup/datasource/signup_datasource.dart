@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 import 'package:lift/core/net/api_constants.dart';
 import 'package:retrofit/http.dart';
 import 'package:retrofit/dio.dart';
@@ -14,4 +16,5 @@ abstract class SignUpDataSource {
 
   @GET('/auth/{email}/duplicate')
   Future<HttpResponse> checkEmailDuplicate(@Path("email") String email);
+
 }

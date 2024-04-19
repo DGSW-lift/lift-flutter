@@ -42,7 +42,9 @@ _liftLogoImg(BuildContext context) {
   );
 }
 
+
 Widget _liftTitle() {
+
   return Container(
     padding: const EdgeInsets.fromLTRB(20, 40, 0, 10),
     alignment: Alignment.centerLeft,
@@ -94,7 +96,7 @@ class LiftLoginButton extends StatelessWidget {
         children: [
          SignupButtonWidget(),
           const SizedBox(height: 10),
-          SigninButtonWidget(),
+         SigninButtonWidget(),
         ],
       ),
     );

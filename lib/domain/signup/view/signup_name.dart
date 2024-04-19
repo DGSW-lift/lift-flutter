@@ -98,7 +98,8 @@ class _SignUpNameViewState extends State<SignUpNameView> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            '성', // 비밀번호 텍스트
+            '성', 
+
             style: TextStyle(
                 fontSize: 15,
                 fontFamily: 'NanumGothic',

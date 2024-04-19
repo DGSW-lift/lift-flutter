@@ -1,4 +1,6 @@
 
+import 'package:json_annotation/json_annotation.dart';
+
 class ApiResponse<T> {
   final int? statusCode;
   final T? data;

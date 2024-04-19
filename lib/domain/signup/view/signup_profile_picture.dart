@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lift/core/common/widgets/circle_button.dart';
@@ -50,6 +51,7 @@ class _SignUpProfilePictureState extends State<SignUpProfilePicture> {
     final Map arguments = Get.arguments as Map;
     final String firstName = arguments['firstName'];
     // 이름 입력 페이지에서 이름만 들고 옴 
+
     // final String lastName = arguments['lastName'];
     return SizedBox(
       width: double.maxFinite,

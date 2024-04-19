@@ -6,7 +6,7 @@ class ReusableButton extends StatelessWidget {
   final double? width;
   final ButtonStyle? style;
   final double? height; 
-  final TextStyle? textStyle;// Add a property for ButtonStyle
+  final TextStyle? textStyle;
 
   const ReusableButton({
     Key? key,
@@ -15,7 +15,7 @@ class ReusableButton extends StatelessWidget {
     this.width,
     this.style,
     this.height,
-    this.textStyle, // Pass the style in
+    this.textStyle, 
   }) : super(key: key);
 
   @override
