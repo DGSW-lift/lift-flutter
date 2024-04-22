@@ -15,7 +15,7 @@ class ReusableButton extends StatelessWidget {
     this.width,
     this.style,
     this.height,
-    this.textStyle, 
+    this.textStyle
   }) : super(key: key);
 
   @override
@@ -27,7 +27,7 @@ class ReusableButton extends StatelessWidget {
         onPressed: onPressed,
         style: style ?? TextButton.styleFrom( 
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
         ),
         child: Text(
           text,
