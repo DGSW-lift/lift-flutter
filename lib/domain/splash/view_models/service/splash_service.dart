@@ -5,7 +5,6 @@ import 'package:lift/domain/signin/view/signin_select_view.dart';
 
 class SplashService {
   void isLogin() {
-    Timer(const Duration(seconds: 2), () => Get.offAll(const SignInSelectView()));
-
+    Timer(const Duration(seconds: 2), () => Get.offAll(const LoginView()));
   }
 }

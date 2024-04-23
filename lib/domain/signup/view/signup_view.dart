@@ -23,25 +23,30 @@ class _SignInScreenState extends State<SignUpView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(),
-      body: Column(
-        children: [
-          _signUpText(),
-          const SizedBox(height: 30),
-          Form(key: _formkey, child: _emailTextField()),
-          const SizedBox(height: 10),
-          SignUpButtonWidget(formKey: _formkey),
-          const SizedBox(height: 10),
-          _orText(),
-          const SizedBox(height: 12),
-          const SocialLoginButton(),
-          const SizedBox(height: 20),
-          const TermOfUseTextarea(),
-        ],
-      ),
-    );
+    return GestureDetector(
+        onTap: () {
+          //FocusManager.instance.primaryFocus?.unfocus();
+          FocusScope.of(context).unfocus();
+        },
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          appBar: AppBar(),
+          body: Column(
+            children: [
+              _signUpText(),
+              const SizedBox(height: 30),
+              Form(key: _formkey, child: _emailTextField()),
+              const SizedBox(height: 10),
+              SignUpButtonWidget(formKey: _formkey),
+              const SizedBox(height: 10),
+              _orText(),
+              const SizedBox(height: 12),
+              const SocialLoginButton(),
+              const SizedBox(height: 20),
+              const TermOfUseTextarea(),
+            ],
+          ),
+        ));
   }
 }
 
