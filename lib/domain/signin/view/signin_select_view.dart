@@ -11,28 +11,26 @@ class SignInSelectView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: SingleChildScrollView(
-        child: SafeArea(
-            child: Container(
-          padding: EdgeInsets.only(left: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 40),
-              _SelectLoginText(),
-              const SizedBox(height: 10),
-              _SelectLoginSubText(),
-              const SizedBox(height: 50),
-              _EmailLoginButton(),
-              const SizedBox(height: 10),
-              _GoogleLoginButton(),
-              const SizedBox(height: 10),
-              _AppleLoginButton(),
-            ],
-          ),
-        )),
-      ),
+      appBar: AppBar(surfaceTintColor: Colors.white,),
+      body: SafeArea(
+          child: Container(
+            padding: const EdgeInsets.only(left: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 40),
+                _SelectLoginText(),
+                const SizedBox(height: 10),
+                _SelectLoginSubText(),
+                const SizedBox(height: 50),
+                _EmailLoginButton(),
+                const SizedBox(height: 10),
+                _GoogleLoginButton(),
+                const SizedBox(height: 10),
+                _AppleLoginButton(),
+              ],
+            ),
+          ))
     );
   }
 
@@ -62,14 +60,14 @@ Widget _EmailLoginButton() {
     padding: const EdgeInsets.only(right: 20),
     child: ReusableButton(
       width: double.infinity,
-      height: 40,
+      height: 55,
       onPressed: () async {
         Get.to(
           () => const SignInView()
         );
       },
       style: TextButton.styleFrom(
-        side: const BorderSide(color: Colors.black, width: 1.5),
+        side: const BorderSide(color: Colors.transparent, width: 1.5),
         backgroundColor: const Color(0xff4F60FE),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
@@ -79,7 +77,7 @@ Widget _EmailLoginButton() {
       ),
       text: '이메일 로그인',
       textStyle:
-          const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),
     ),
   );
 }
@@ -87,7 +85,7 @@ Widget _EmailLoginButton() {
 Widget _AppleLoginButton() {
   return Container(
     padding: EdgeInsets.only(right: 20),
-    height: 40,
+    height: 55,
     child: ReusableImageLoginButton(
       imagePath: 'assets/images/remove_background_Login_apple.png',
       text: '애플 로그인',
@@ -100,7 +98,7 @@ Widget _AppleLoginButton() {
 
 Widget _GoogleLoginButton() {
   return Container(
-    height: 40,
+    height: 55,
     padding: const EdgeInsets.only(right: 20),
     child: ReusableImageLoginButton(
       imagePath: 'assets/images/remove_background_Login_google.png',

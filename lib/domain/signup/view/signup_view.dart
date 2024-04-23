@@ -21,11 +21,15 @@ class SignUpView extends StatefulWidget {
 class _SignInScreenState extends State<SignUpView> {
   final _formkey = GlobalKey<FormState>();
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(surfaceTintColor: Colors.white,),
+      appBar: AppBar(
+        surfaceTintColor: Colors.white,
+      ),
       body: Column(
         children: [
           _signUpText(),
@@ -55,11 +59,9 @@ Widget _signUpText() {
       children: [
         Text("회원 가입",
             style: TextStyle(
-
                 fontWeight: FontWeight.bold,
                 fontFamily: 'NanumGothicBold',
                 fontSize: 40),
-
             textAlign: TextAlign.left),
         SizedBox(
           height: 20,
@@ -67,10 +69,8 @@ Widget _signUpText() {
         Opacity(
             opacity: 0.2,
             child: Text("만 14세 미만은 가입할 수 없습니다.",
-
-            style: TextStyle(fontFamily: 'NanumGothic', fontSize: 15),
-            textAlign: TextAlign.left)),
-
+                style: TextStyle(fontFamily: 'NanumGothic', fontSize: 15),
+                textAlign: TextAlign.left)),
       ],
     ),
   );

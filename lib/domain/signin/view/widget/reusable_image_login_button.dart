@@ -8,14 +8,14 @@ Widget ReusableImageLoginButton({
   return ElevatedButton(
     onPressed: onPressed,
     style: ElevatedButton.styleFrom(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
-      surfaceTintColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      surfaceTintColor: const Color.fromARGB(255, 255, 255, 255),
       foregroundColor: Colors.white,
       side: const BorderSide(
         color: Colors.black,
         width: 1.5,
       ),
-      minimumSize: Size(double.infinity, 50),
+      minimumSize: const Size(double.infinity, 50),
       elevation: 1.0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
@@ -30,7 +30,7 @@ Widget ReusableImageLoginButton({
           text,
           style: const TextStyle(
             color: Colors.black87,
-            fontSize: 15.0,
+            fontSize: 17.0,
             fontWeight: FontWeight.bold,
           ),
         ),
