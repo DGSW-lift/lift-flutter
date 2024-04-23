@@ -2,14 +2,16 @@
 import 'package:flutter/material.dart';
 import 'package:lift/View/widget/resource/reusable_button.dart';
 import 'package:get/get.dart';
+import 'package:lift/domain/signin/view/signin_select_view.dart';
 
 class SigninButtonWidget extends StatelessWidget {
 
-  SigninButtonWidget({Key? key}) : super(key: key);
+  const SigninButtonWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return   ReusableButton(
+
+    return ReusableButton(
       text: "LIFT 회원입니다",
       width: double.infinity,
       height: 50,
@@ -20,6 +22,12 @@ class SigninButtonWidget extends StatelessWidget {
           fontSize: 15,
           color: Color(0xff4F60FE),
           fontFamily: 'NanumGothic'),
+      onPressed:() {
+        Get.to(
+          () => const SignInSelectView()
+        );
+      } ,
+
     );
   }
 }

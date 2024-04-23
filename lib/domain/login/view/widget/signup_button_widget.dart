@@ -8,15 +8,16 @@ import 'package:lift/domain/signup/view/signup_view.dart';
 
 class SignupButtonWidget extends StatelessWidget {
 
-  SignupButtonWidget({Key? key}) : super(key: key);
+  const SignupButtonWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return   ReusableButton(
+
+    return ReusableButton(
       text: "회원가입",
       width: double.infinity,
       height: 50,
-      style: TextButton.styleFrom(backgroundColor: Color(0xff4F60FE)),
+      style: TextButton.styleFrom(backgroundColor: const Color(0xff4F60FE)),
       textStyle: const TextStyle(
           fontSize: 15, color: Colors.white, fontFamily: 'NanumGothic'),
       onPressed: () {

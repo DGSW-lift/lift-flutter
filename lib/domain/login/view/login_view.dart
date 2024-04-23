@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:lift/domain/login/view/widget/signin_button_widget.dart';
 import 'package:lift/domain/login/view/widget/signup_button_widget.dart';
 
@@ -41,6 +40,7 @@ _liftLogoImg(BuildContext context) {
 }
 
 Widget _liftTitle() {
+
   return Container(
     padding: const EdgeInsets.fromLTRB(20, 40, 0, 10),
     alignment: Alignment.centerLeft,
@@ -88,11 +88,11 @@ class LiftLoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.fromLTRB(10, 0, 10, 40),
-      child: Column(
+      child: const Column(
         children: [
          SignupButtonWidget(),
-          const SizedBox(height: 10),
-          SigninButtonWidget(),
+         SizedBox(height: 10),
+         SigninButtonWidget(),
         ],
       ),
     );

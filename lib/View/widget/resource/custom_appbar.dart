@@ -16,7 +16,7 @@ AppBar customAppBar(BuildContext context) {
               Navigator.of(context).pop();
             },
         ),
-        Spacer(),// '다음'버튼이 오른쪽에 붙을때까지 여백 주기
+        const Spacer(),// '다음'버튼이 오른쪽에 붙을때까지 여백 주기
          TextButton(
             onPressed: () {},
             child: const Text(
