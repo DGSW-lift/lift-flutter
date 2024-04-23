@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:lift/View/widget/resource/reusable_button.dart';
 import 'package:lift/domain/signin/view/signin_view.dart';
-import 'package:lift/domain/signin/view/widget/reusable_image_login_button.dart';
 
 class SignInSelectView extends StatelessWidget {
   const SignInSelectView({super.key});
