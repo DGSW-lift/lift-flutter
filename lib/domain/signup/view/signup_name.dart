@@ -21,7 +21,7 @@ class _SignUpNameViewState extends State<SignUpNameView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar:  AppBar(surfaceTintColor: Colors.white,),
       body: SafeArea(
         child: Container(
           padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),

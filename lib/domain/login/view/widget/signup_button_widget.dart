@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:lift/View/widget/resource/reusable_button.dart';
 import 'package:get/get.dart';
+import 'package:lift/domain/signup/view/signup_complete_view.dart';
+import 'package:lift/domain/signup/view/signup_interest_view.dart';
 import 'package:lift/domain/signup/view/signup_view.dart';
 
 class SignupButtonWidget extends StatelessWidget {
@@ -19,7 +21,7 @@ class SignupButtonWidget extends StatelessWidget {
           fontSize: 15, color: Colors.white, fontFamily: 'NanumGothic'),
       onPressed: () {
         Get.to(
-              () => const SignUpView(),
+              () => const SignUpView()
         );
       },
     );

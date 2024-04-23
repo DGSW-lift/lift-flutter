@@ -11,7 +11,7 @@ class HttpClient {
 
   HttpClient() {
     client = Dio(BaseOptions(
-      receiveTimeout: const Duration(seconds: 10),
+      receiveTimeout: const Duration(seconds: 30),
       connectTimeout: const Duration(seconds: 10),
       sendTimeout: const Duration(seconds: 10),
     ));
@@ -20,7 +20,7 @@ class HttpClient {
       dio: client,
       retries: 1,
       retryDelays: const [
-        Duration(seconds: 10),
+        Duration(seconds: 30),
       ],
     ));
 

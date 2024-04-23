@@ -25,7 +25,7 @@ class _SignInScreenState extends State<SignUpView> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(),
+      appBar: AppBar(surfaceTintColor: Colors.white,),
       body: Column(
         children: [
           _signUpText(),
@@ -132,7 +132,7 @@ class SocialLoginButton extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        if (GetPlatform.isIOS)
+        if (GetPlatform.isIOS) ...[
           Ink.image(
             image: const AssetImage('assets/images/Login_apple.png'),
             height: 45,
@@ -143,7 +143,8 @@ class SocialLoginButton extends StatelessWidget {
               },
             ),
           ),
-        const SizedBox(height: 50, width: 10),
+          const SizedBox(height: 50, width: 10),
+        ],
         Ink.image(
           image: const AssetImage('assets/images/Login_google.png'),
           height: 45,

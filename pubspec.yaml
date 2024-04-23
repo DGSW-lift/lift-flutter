@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   dio_smart_retry: ^5.0.0
-  retrofit: 4.0.1
+  retrofit: 4.1.0
   json_annotation: ^4.8.1
   flutter_dotenv: ^5.1.0
   flutter_native_splash: ^2.4.0
@@ -23,6 +23,8 @@ dependencies:
   textfield_tags: ^3.0.1
   the_apple_sign_in: ^1.1.1
   fluttertoast: ^8.2.5
+  flutter_tags: ^1.0.0-nullsafety.1
+
 
 dev_dependencies:
   flutter_test:

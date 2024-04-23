@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lift/domain/signup/view_models/controller/signup_view_model.dart';
 
@@ -11,10 +12,47 @@ class ImageProfileWidget extends StatelessWidget {
   final ImagePicker picker = ImagePicker();
   final _signUpVM = Get.put(SignupViewModel());
 
-  Future getImage(ImageSource imageSource) async {
+  Future getImage(BuildContext context, ImageSource imageSource) async {
     final XFile? pickedFile = await picker.pickImage(source: imageSource);
     if (pickedFile != null) {
-      _signUpVM.profileImage = Rx(XFile(pickedFile.path));
+      File file = File(pickedFile.path);
+      await selectedImage(context, file);
+    }
+  }
+
+  Future<void> selectedImage(BuildContext context, File? image) async {
+    // Check file
+    if (image != null) {
+      final CroppedFile? croppedFile = await ImageCropper().cropImage(
+          sourcePath: image.path,
+          aspectRatioPresets: [CropAspectRatioPreset.square],
+          aspectRatio: const CropAspectRatio(ratioX: 1, ratioY: 1),
+          cropStyle: CropStyle.rectangle,
+          maxWidth: 500,
+          maxHeight: 500,
+          compressQuality: 100,
+          compressFormat: ImageCompressFormat.jpg,
+          uiSettings: [
+            AndroidUiSettings(
+                toolbarTitle: "사진 편집",
+                toolbarColor: Theme.of(context).primaryColor,
+                toolbarWidgetColor: Colors.white,
+                initAspectRatio: CropAspectRatioPreset.original,
+                lockAspectRatio: true),
+            IOSUiSettings(
+              title: "사진 편집",
+              aspectRatioLockEnabled: true,
+            ),
+          ]);
+
+      // Hold the file
+      File? imageFile;
+      // Check
+      if (croppedFile != null) {
+        imageFile = File(croppedFile.path);
+        _signUpVM.profileImage.value = imageFile;
+      }
+
     }
   }
 
@@ -29,7 +67,8 @@ class ImageProfileWidget extends StatelessWidget {
               child: Obx(
                 () => _signUpVM.profileImage.value != null
                     ? Image.file(
-                        File(_signUpVM.profileImage.value!.path),
+                        _signUpVM.profileImage.value!,
+                        // File(_signUpVM.profileImage.value!.path),
                         fit: BoxFit.cover,
                         width: 130,
                         height: 130,
@@ -57,10 +96,10 @@ class ImageProfileWidget extends StatelessWidget {
     if (option != null) {
       switch (option) {
         case 'gallery':
-          getImage(ImageSource.gallery);
+          getImage(context, ImageSource.gallery);
           break;
         case 'camera':
-          getImage(ImageSource.camera);
+          getImage(context, ImageSource.camera);
           break;
       }
     }
