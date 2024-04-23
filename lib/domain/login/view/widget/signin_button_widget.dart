@@ -2,12 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:lift/View/widget/resource/reusable_button.dart';
 import 'package:get/get.dart';
-import 'package:lift/domain/signin/view/signin_view.dart';
-
+import 'package:lift/domain/signin/view/signin_select_view.dart';
 
 class SigninButtonWidget extends StatelessWidget {
 
-  SigninButtonWidget({Key? key}) : super(key: key);
+  const SigninButtonWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class SigninButtonWidget extends StatelessWidget {
           fontFamily: 'NanumGothic'),
       onPressed:() {
         Get.to(
-          () => const SignInView()
+          () => const SignInSelectView()
         );
       } ,
 

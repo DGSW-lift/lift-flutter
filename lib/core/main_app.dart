@@ -12,7 +12,6 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: appTheme,
       home: const SplashView(),
-      //const LoginScreen(),
     );
   }
 }

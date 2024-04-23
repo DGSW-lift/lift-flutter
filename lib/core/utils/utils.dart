@@ -19,8 +19,6 @@ class Utils {
       textColor: Colors.white,
       gravity: ToastGravity.BOTTOM,
       toastLength: Toast.LENGTH_LONG,
-
-
     );
   }
 

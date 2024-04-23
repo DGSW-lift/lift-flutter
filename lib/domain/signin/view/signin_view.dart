@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:lift/View/widget/resource/reusable_button.dart';
-import 'package:lift/core/common/widgets/circle_button.dart';
 import 'package:lift/domain/signup/view/widget/signup_name/input_first_name_widget.dart';
 import 'package:lift/domain/signup/view/widget/signup_name/input_last_name_widget.dart';
 
@@ -41,12 +39,11 @@ class _SignInViewState extends State<SignInView> {
                       _SignInButton(),
                     ],
                   ),
-                )
+              )
             ],
           ),
         ),
       ),
-
     );
   }
 
