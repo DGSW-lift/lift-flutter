@@ -30,8 +30,7 @@ Widget ReusableImageLoginButton({
           text,
           style: const TextStyle(
             color: Colors.black87,
-            fontSize: 17.0,
-            fontWeight: FontWeight.bold,
+            fontSize: 15.0,
           ),
         ),
       ],

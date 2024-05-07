@@ -24,6 +24,7 @@ dependencies:
   the_apple_sign_in: ^1.1.1
   fluttertoast: ^8.2.5
   flutter_tags: ^1.0.0-nullsafety.1
+  flutter_keychain: ^2.4.0
 
 
 dev_dependencies:

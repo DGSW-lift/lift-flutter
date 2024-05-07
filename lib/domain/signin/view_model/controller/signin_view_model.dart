@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:lift/core/common/models/api_response.dart';
 import 'package:lift/core/common/models/authentication.dart';
+import 'package:lift/core/helpers/token_storage_helper.dart';
 import 'package:lift/core/utils/utils.dart';
 import 'package:lift/domain/signin/model/signin_request.dart';
 import 'package:lift/domain/signin/repository/signin_repository.dart';
@@ -42,6 +43,7 @@ class SigninViewModel extends GetxController {
     if (response.statusCode == HttpStatus.ok) {
       loading.value = false;
       Authentication authentication = response.data;
+      await TokenStorage().save(authentication);
       return true;
     }
     Utils.snackBar('알림', '이메일 또는 비밀번호를 확인해주세요.');

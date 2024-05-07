@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart' hide Headers;
 import 'package:lift/core/common/models/authentication.dart';
 import 'package:lift/core/net/api_constants.dart';
+import 'package:lift/domain/signin/model/refresh_token_request.dart';
 import 'package:lift/domain/signin/model/signin_request.dart';
 import 'package:lift/domain/signup/model/interest_response.dart';
 import 'package:lift/domain/signup/model/signup_request.dart';
@@ -18,5 +19,8 @@ abstract class SignInDataSource {
 
   @POST('/auth')
   Future<HttpResponse<Authentication>> signIn(@Body() SignInRequest signInRequest);
+
+  @POST('/auth/refresh')
+  Future<HttpResponse<Authentication>> refreshToken(@Body() RefreshTokenRequest refreshTokenRequest);
 
 }

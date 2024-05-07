@@ -77,7 +77,7 @@ Widget _EmailLoginButton() {
       ),
       text: '이메일 로그인',
       textStyle:
-          const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),
+          const TextStyle(color: Colors.white,  fontSize: 15),
     ),
   );
 }
