@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:lift/View/widget/resource/reusable_button.dart';
+import 'package:lift/domain/main/view/main_view.dart';
 import 'package:lift/domain/signin/view_model/controller/signin_view_model.dart';
 
 class SignInEmailButtonWidget extends StatelessWidget {
@@ -24,6 +25,8 @@ class SignInEmailButtonWidget extends StatelessWidget {
           if (formKey.currentState!.validate()) {
             if(await signUpVM.signIn()){
               print("로그인 성공 : 200");
+
+              Get.offAll(() => const MainView());
               // Get.to(() => const SignupPasswordView());
             }
           }

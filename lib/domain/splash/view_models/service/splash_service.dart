@@ -5,6 +5,7 @@ import 'package:lift/core/common/models/api_response.dart';
 import 'package:lift/core/common/models/authentication.dart';
 import 'package:lift/core/helpers/token_storage_helper.dart';
 import 'package:lift/domain/login/view/login_view.dart';
+import 'package:lift/domain/main/view/main_view.dart';
 import 'package:lift/domain/signin/model/refresh_token_request.dart';
 import 'package:lift/domain/signin/repository/signin_repository.dart';
 import 'package:lift/domain/signin/view/signin_select_view.dart';
@@ -24,7 +25,9 @@ class SplashService {
             .refreshToken(RefreshTokenRequest(refreshToken: refreshToken));
         if (apiResponse.statusCode == HttpStatus.ok) {
           Authentication authentication = apiResponse.data;
-        // to Main
+          await TokenStorage().save(authentication);
+          toMainView();
+          // to Main
           return;
         }
         toLoginView();
@@ -36,6 +39,10 @@ class SplashService {
   }
 
   void toLoginView() {
-    Get.offAll(const LoginView());
+    Get.offAll(() => const LoginView());
+  }
+
+  void toMainView() {
+    Get.offAll(() => const MainView());
   }
 }

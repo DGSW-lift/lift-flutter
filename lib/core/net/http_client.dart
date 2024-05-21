@@ -42,7 +42,10 @@ class HttpClient {
       onRequest: (options, handler) async {
         int diffSecond = 0;
         String? accessToken = await TokenStorage().getAccessToken();
-        if (accessToken == null) return;
+        if (accessToken == null) {
+          handler.next(options);
+          return;
+        }
         Map<String, dynamic>? decodedToken = decodeJwt(accessToken!);
         if (decodedToken != null && decodedToken.containsKey("exp")) {
           int expirationTimestamp = decodedToken["exp"];
