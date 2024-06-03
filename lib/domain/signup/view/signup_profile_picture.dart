@@ -20,7 +20,7 @@ class _SignUpProfilePictureState extends State<SignUpProfilePicture> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar:  AppBar(surfaceTintColor: Colors.white,),
         body: SafeArea(
           child: Container(
             padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
@@ -43,12 +43,14 @@ class _SignUpProfilePictureState extends State<SignUpProfilePicture> {
             bgColor: colors.accentColor,
             padding: 20,
             onTap: () {
-              Get.to(const SignupInterestView());
+              if(_signUpVM.profileImage.value != null) {
+                Get.to(const SignupInterestView());
+              }
             }));
   }
 
   Widget _registerProfileText() {
-    final Map arguments = Get.arguments as Map;
+    final Map arguments  = Get.arguments as Map;
     final String firstName = arguments['firstName'];
     // 이름 입력 페이지에서 이름만 들고 옴 
 

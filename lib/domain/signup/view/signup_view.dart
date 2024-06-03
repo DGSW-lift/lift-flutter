@@ -21,32 +21,32 @@ class SignUpView extends StatefulWidget {
 class _SignInScreenState extends State<SignUpView> {
   final _formkey = GlobalKey<FormState>();
 
+
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-        onTap: () {
-          //FocusManager.instance.primaryFocus?.unfocus();
-          FocusScope.of(context).unfocus();
-        },
-        child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          appBar: AppBar(),
-          body: Column(
-            children: [
-              _signUpText(),
-              const SizedBox(height: 30),
-              Form(key: _formkey, child: _emailTextField()),
-              const SizedBox(height: 10),
-              SignUpButtonWidget(formKey: _formkey),
-              const SizedBox(height: 10),
-              _orText(),
-              const SizedBox(height: 12),
-              const SocialLoginButton(),
-              const SizedBox(height: 20),
-              const TermOfUseTextarea(),
-            ],
-          ),
-        ));
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        surfaceTintColor: Colors.white,
+      ),
+      body: Column(
+        children: [
+          _signUpText(),
+          const SizedBox(height: 30),
+          Form(key: _formkey, child: _emailTextField()),
+          const SizedBox(height: 10),
+          SignUpButtonWidget(formKey: _formkey),
+          // _nextButton(context),
+          const SizedBox(height: 10),
+          _orText(),
+          const SizedBox(height: 12),
+          const SocialLoginButton(),
+          const SizedBox(height: 20),
+          const TermOfUseTextarea(),
+        ],
+      ),
+    );
   }
 }
 
@@ -59,11 +59,9 @@ Widget _signUpText() {
       children: [
         Text("회원 가입",
             style: TextStyle(
-
                 fontWeight: FontWeight.bold,
                 fontFamily: 'NanumGothicBold',
                 fontSize: 40),
-
             textAlign: TextAlign.left),
         SizedBox(
           height: 20,
@@ -71,10 +69,8 @@ Widget _signUpText() {
         Opacity(
             opacity: 0.2,
             child: Text("만 14세 미만은 가입할 수 없습니다.",
-
-            style: TextStyle(fontFamily: 'NanumGothic', fontSize: 15),
-            textAlign: TextAlign.left)),
-
+                style: TextStyle(fontFamily: 'NanumGothic', fontSize: 15),
+                textAlign: TextAlign.left)),
       ],
     ),
   );
@@ -139,7 +135,7 @@ class SocialLoginButton extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        if (GetPlatform.isIOS)
+        if (GetPlatform.isIOS) ...[
           Ink.image(
             image: const AssetImage('assets/images/Login_apple.png'),
             height: 45,
@@ -150,7 +146,8 @@ class SocialLoginButton extends StatelessWidget {
               },
             ),
           ),
-        const SizedBox(height: 50, width: 10),
+          const SizedBox(height: 50, width: 10),
+        ],
         Ink.image(
           image: const AssetImage('assets/images/Login_google.png'),
           height: 45,

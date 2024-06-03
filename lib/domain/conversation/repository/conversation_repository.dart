@@ -1,0 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+abstract class ConversationRepository {
+}
+
+class ConversationRepositoryImpl implements ConversationRepository {
+
+  
+}
