@@ -12,5 +12,14 @@ abstract class MemberDataSource {
   factory MemberDataSource(Dio dio) = _MemberDataSource;
 
   @GET('/member/company/{id}/profile')
-  Future<HttpResponse<MemberModel>> profile(@Path('id') int id);
+  Future<HttpResponse<MemberModel>> profileByCompanyId(@Path('id') int id);
+
+  @GET('/member/{id}/profile')
+  Future<HttpResponse<MemberModel>> profileById(@Path('id') int id);
+
+  @GET('/member/profile')
+  Future<HttpResponse<MemberModel>> profile();
+
+  @GET('/member/email/profile')
+  Future<HttpResponse<MemberModel>> profileByEmail(@Query('email') String email);
 }

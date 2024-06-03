@@ -4,14 +4,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:lift/core/common/models/api_response.dart';
 import 'package:lift/core/common/models/authentication.dart';
+import 'package:lift/core/common/service/member_profile_service.dart';
 import 'package:lift/core/helpers/token_storage_helper.dart';
 import 'package:lift/core/utils/utils.dart';
+import 'package:lift/domain/member/repository/member_repository.dart';
 import 'package:lift/domain/signin/model/signin_request.dart';
 import 'package:lift/domain/signin/repository/signin_repository.dart';
 
 class SigninViewModel extends GetxController {
 
   final SignInRepository _api = SignInRepositoryImpl();
+  final MemberRepository _memberApi = MemberRepositoryImpl();
 
   final emailController = TextEditingController().obs;
   final passwordController = TextEditingController().obs;
@@ -44,6 +47,8 @@ class SigninViewModel extends GetxController {
       loading.value = false;
       Authentication authentication = response.data;
       await TokenStorage().save(authentication);
+      // _memberApi.profile(id: id)
+      // await Get.putAsync<MemberProfileService>(() async => MemberProfileService());
       return true;
     }
     Utils.snackBar('알림', '이메일 또는 비밀번호를 확인해주세요.');

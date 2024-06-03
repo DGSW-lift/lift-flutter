@@ -50,8 +50,8 @@ class HireViewModel extends GetxController {
     return apiResponse.data;
   }
 
-  Future<MemberModel> getProfile({required int id}) async  {
-    ApiResponse apiResponse = await _apiMember.profile(id: id);
+  Future<MemberModel> getProfileByCompanyId({required int id}) async  {
+    ApiResponse apiResponse = await _apiMember.profileByCompanyId(id: id);
     return apiResponse.data;
   }
 

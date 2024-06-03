@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:lift/core/common/models/message.dart';
+import 'package:lift/core/common/service/member_profile_service.dart';
+import 'package:lift/core/common/service/message_service.dart';
 import 'package:lift/core/common/widgets/custom_indicator_dialog.dart';
 import 'package:lift/domain/hire/model/hire_detail_company.dart';
 import 'package:lift/domain/hire/view_model/controller/hire_view_model.dart';
@@ -18,6 +22,9 @@ class HireDetailView extends StatefulWidget {
 
 class _HireDetailViewState extends State<HireDetailView> {
   final _hireVM = Get.put(HireViewModel());
+
+  final MemberProfileService _memberProfileService = Get.find();
+
   final _messageFormKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -59,7 +66,7 @@ class _HireDetailViewState extends State<HireDetailView> {
     if (!context.mounted) {
       return;
     }
-    MemberModel revMember = await _hireVM.getProfile(id: id);
+    MemberModel revMember = await _hireVM.getProfileByCompanyId(id: id);
     if (revMember == null) {
       return;
     }
@@ -134,11 +141,33 @@ class _HireDetailViewState extends State<HireDetailView> {
                                   fontSize: 17, fontWeight: FontWeight.bold)),
                         ),
                         onPressed: () async {
+
                           if (_messageFormKey.currentState!.validate()) {
-                            final message = _hireVM.messageController.value.text;
 
+                            final messageText = _hireVM.messageController.value.text;
+                            Message message = Message(
+                                "text",
+                                messageText,
+                                null,
+                                _memberProfileService.getEmail(),
+                                _memberProfileService.getName(),
+                                _memberProfileService.getImageURL(),
+                                revMember.email,
+                                '${revMember.firstName} ${revMember.lastName}',
+                                revMember.imgUrl,
+                                'token');
 
-
+                            final messageService = MessageServiceImpl();
+                            if(await messageService.send(context: context, message: message)){
+                              await Fluttertoast.showToast(
+                                msg: '성공적으로 메시지가 전달되었습니다.',
+                                toastLength: Toast.LENGTH_SHORT,
+                                gravity: ToastGravity.BOTTOM,
+                                backgroundColor: Colors.grey,
+                                textColor: Colors.white,
+                                fontSize: 13.0,
+                              );
+                            }
                             if(context.mounted){
                               _hireVM.messageController.value.clear();
                               Navigator.of(context).pop();

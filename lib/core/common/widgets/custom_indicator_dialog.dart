@@ -42,7 +42,7 @@ class CustomIndicatorDialog {
   Widget _dialog() {
     return Container(
       padding: const EdgeInsets.all(8.0),
-      child:  const CircularProgressIndicator(),
+      child:  const CupertinoActivityIndicator(),
     );
   }
 

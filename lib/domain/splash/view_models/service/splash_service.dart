@@ -2,16 +2,17 @@ import 'dart:async';
 import 'dart:io';
 import 'package:get/get.dart';
 import 'package:lift/core/common/models/api_response.dart';
-import 'package:lift/core/common/models/authentication.dart';
+import 'package:lift/core/common/service/member_profile_service.dart';
 import 'package:lift/core/helpers/token_storage_helper.dart';
 import 'package:lift/domain/login/view/login_view.dart';
 import 'package:lift/domain/main/view/main_view.dart';
-import 'package:lift/domain/signin/model/refresh_token_request.dart';
-import 'package:lift/domain/signin/repository/signin_repository.dart';
-import 'package:lift/domain/signin/view/signin_select_view.dart';
+import 'package:lift/domain/member/model/member_model.dart';
+import 'package:lift/domain/member/repository/member_repository.dart';
+
 
 class SplashService {
-  final SignInRepository _api = SignInRepositoryImpl();
+  // final SignInRepository _api = SignInRepositoryImpl();
+  final MemberRepository _api = MemberRepositoryImpl();
 
   void isLogin() {
     Timer(const Duration(seconds: 1), () async {
@@ -21,15 +22,14 @@ class SplashService {
         toLoginView();
         return;
       } else {
-        ApiResponse apiResponse = await _api
-            .refreshToken(RefreshTokenRequest(refreshToken: refreshToken));
+        ApiResponse apiResponse = await _api.profile();
         if (apiResponse.statusCode == HttpStatus.ok) {
-          Authentication authentication = apiResponse.data;
-          await TokenStorage().save(authentication);
+          MemberModel memberModel = apiResponse.data;
+          Get.put(MemberProfileService(memberModel));
           toMainView();
-          // to Main
           return;
         }
+
         toLoginView();
         return;
       }

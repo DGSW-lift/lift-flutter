@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:lift/View/widget/resource/reusable_button.dart';
@@ -15,7 +16,7 @@ class SignInEmailButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() => signUpVM.loading.value
-        ? const Center(child: CircularProgressIndicator())
+        ? const Center(child: CupertinoActivityIndicator())
         : Container(
       width: double.infinity,
       height: 49,

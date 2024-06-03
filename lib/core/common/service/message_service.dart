@@ -27,7 +27,7 @@ class MessageServiceImpl implements MessageService {
         textMsg = message.textMsg!;
         break;
       case 'image':
-        await pr.show('');
+        await pr.show('업로드....');
         ApiResponse apiResponse =
             await _uploadRepository.upload(file: message.imgFile!);
         UploadResponse uploadResponse = apiResponse.data;

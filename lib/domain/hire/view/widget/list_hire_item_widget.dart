@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lift/domain/hire/model/hire_company.dart';
 
@@ -16,7 +17,7 @@ class ListHireItemWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
           child: CachedNetworkImage(
               imageUrl: hireCompany.img,
-              placeholder: (context, url) => const CircularProgressIndicator(),
+              placeholder: (context, url) => const CupertinoActivityIndicator(),
               errorWidget: (context, url, error) => Container(),
         ),
         ),

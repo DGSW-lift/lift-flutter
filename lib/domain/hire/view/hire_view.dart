@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lift/domain/hire/view/widget/custom_app_bar.dart';
 import 'package:get/get.dart';
+import 'package:lift/core/common/widgets/custom_app_bar.dart';
 import 'package:lift/domain/hire/view/widget/list_hire_widget.dart';
 import 'package:lift/domain/hire/view/widget/search_condition_status_widget.dart';
 import 'package:lift/domain/hire/view_model/controller/hire_view_model.dart';
@@ -30,7 +30,7 @@ class _HireViewState extends State<HireView> {
         children: [
           Column(
             children: [
-              CustomAppBar(),
+              CustomAppBar(title: 'LIFT',rightIconButton: IconButton(onPressed: (){}, icon: const Icon(Icons.search)),),
               const SizedBox(
                 height: 10,
               ),
@@ -45,7 +45,7 @@ class _HireViewState extends State<HireView> {
               ? Container(
                   color: Colors.black.withOpacity(0.5),
                   child: const Center(
-                    child: CircularProgressIndicator(),
+                    child: CupertinoActivityIndicator(),
                   ),
                 )
               : Container())

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lift/domain/signin/view_model/controller/signin_view_model.dart';
 import 'package:lift/domain/signup/view/signup_name.dart';
@@ -16,7 +17,7 @@ class SignInButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() => signUpVM.loading.value
-        ? const Center(child: CircularProgressIndicator())
+        ? const Center(child: CupertinoActivityIndicator())
         : Container(
             width: double.infinity,
             height: 49,
