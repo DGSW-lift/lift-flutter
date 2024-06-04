@@ -33,5 +33,4 @@ class TokenStorage {
     await FlutterKeychain.remove(key: _accessToken);
     await FlutterKeychain.remove(key: _refreshToken);
   }
-
 }

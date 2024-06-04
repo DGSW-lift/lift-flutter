@@ -13,7 +13,7 @@ class _HireDataSource implements HireDataSource {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'http://localhost:8080';
+    baseUrl ??= 'http://3.35.114.133:8080';
   }
 
   final Dio _dio;

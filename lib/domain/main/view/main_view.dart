@@ -1,10 +1,12 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lift/domain/community/view/communityScreen.dart';
 import 'package:lift/domain/conversation/view/conversation_view.dart';
 import 'package:lift/domain/hire/view/hire_view.dart';
 import 'package:lift/domain/main/view_model/controller/main_view_model.dart';
 import 'package:lift/core/values/colors.dart' as colors;
+import 'package:lift/domain/setting/view/settingScreen.dart';
 
 class MainView extends StatefulWidget {
   const MainView({Key? key}) : super(key: key);
@@ -75,10 +77,9 @@ class _MainViewState extends State<MainView> {
       // const DiscoverTab(),
       const HireView(),
       const ConversationView(),
-      Container(
-        color: Colors.blue,
-      ),
-      Container()
+      const CommunityView(),
+      const SettingScreen()
     ];
   }
 }
+       
