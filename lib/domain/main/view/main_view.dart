@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lift/domain/community/view/communityScreen.dart';
+import 'package:lift/domain/community/view/community_view.dart';
 import 'package:lift/domain/conversation/view/conversation_view.dart';
 import 'package:lift/domain/hire/view/hire_view.dart';
 import 'package:lift/domain/main/view_model/controller/main_view_model.dart';
